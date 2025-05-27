@@ -36,9 +36,14 @@ class Controller:
         lista = self._model.lista_tuple_nodo_somma()
         for element in lista:
             self._view.txt_result.controls.append(ft.Text(f"{element}"))
-            self._view.update_page()
+        self._view.update_page()
 
 
 
     def handle_path(self, e):
-        pass
+        lunghezza = int(self._view.txtN.value)
+        stringa = self._model.heaviest_path(lunghezza)
+        print(stringa)
+        self._view.txt_result.controls.append(ft.Text(f"{stringa}"))
+        self._view.update_page()
+

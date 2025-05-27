@@ -45,13 +45,14 @@ class View(ft.UserControl):
         self._controller.fillDD()
 
         # List View where the reply is printed
-        self.txt_result = ft.ListView(expand=0, spacing=5, padding=5, auto_scroll=True)
+        self.txt_result = ft.ListView(expand=0, spacing=5, padding=5, on_scroll=ft.ScrollMode.ALWAYS)
         self._page.controls.append(self.txt_result)
         self._page.update()
 
 
+        self.btn_azzera = ft.ElevatedButton(text="azzera", on_click=self.txt_result.controls.clear())
         self.btn_volume = ft.ElevatedButton(text="Calcola Volumi", on_click=self._controller.handle_volume)
-        row2 = ft.Row([self.btn_volume],
+        row2 = ft.Row([self.btn_volume, self.btn_azzera],
                       alignment=ft.MainAxisAlignment.CENTER)
         self._page.controls.append(row2)
 
